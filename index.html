@@ -6,9 +6,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header class="background"></header>
+  <section class="main__wrapper">
+    <div class="main">
+      <div class="main__header">
+        <h1 class="logo">TODO</h1>
+        <img src="img/moon.svg" alt="moon" class="theme-link">
+      </div>
+      <form action="#">
+        <div class="select">
+          <label class="select-inner">
+            <input class="checkbox" type="checkbox">
+            <span class="fake-input">
+              <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </span>
+            <input class="input-task" type="text" placeholder="Create a new todo…">
+          </label>
+        </div>
+        <div class="tasks">
+          <div class="task">
+            <label class="task-inner">
+              <input class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">Complete online JavaScript course</p>
+            </label>
+            <span class="cross"></span>
+          </div>
+          <div class="task">
+            <label class="task-inner">
+              <input class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">Jog around the park 3x</p>
+            </label>
+            <span class="cross"></span>
+          </div>
+          <div class="task">
+            <label class="task-inner">
+              <input class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">10 minutes meditation</p>
+              <span class="cross"></span>
+            </label>
+          </div>
+          <div class="task">
+            <label class="task-inner">
+              <input class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">Read for 1 hour</p>
+              <span class="cross"></span>
+            </label>
+          </div>
+          <div class="task">
+            <label class="task-inner">
+              <input class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">Pick up groceries</p>
+              <span class="cross"></span>
+            </label>
+          </div>
+          <div class="task">
+            <label class="task-inner">
+              <input class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">Complete Todo App on Frontend Mentor</p>
+              <span class="cross"></span>
+            </label>
+          </div>
+        </div>
+      </form>
+      <div class="task-footer">
+        <p class="task-count"><span>5</span> items left</p>
+        <div class="filter-wrapper">
+          <p id="all" class="filter-btn">All</p>
+          <p id="active" class="filter-btn">Active</p>
+          <p id="completed" class="filter-btn">Completed</p>
+        </div>
+        <p class="task-clear">Clear Completed</p>
+      </div>
+      <h3 class="subtitle">Drag and drop to reorder list</h3>
+    </div>
+  </section>
   <script src="js/script.js"></script>
 </body>
 </html>
