@@ -14,7 +14,6 @@ body {
 }
 .main__wrapper {
   margin: auto;
-  
 }
 .main {
   width: 540px;
@@ -31,7 +30,7 @@ body {
 }
 .logo {
   font-weight: 700;
-  font-size: 2.22rem;
+  font-size: 2.5rem;
   letter-spacing: 15px;
   color: #FFFFFF;
   margin: 0;
@@ -54,7 +53,7 @@ body {
 .input-task {
   color: #393A4B;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: -0.25px;
   width: 100%;
   background: #FFFFFF;
@@ -63,7 +62,7 @@ body {
 }
 .input-task::placeholder {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: -0.25px;
   color: #9495A5;
 }
@@ -89,7 +88,7 @@ body {
 }
 .task-text {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.125rem;
   letter-spacing: -0.25px;
   color: #494C6B;
   cursor: pointer;
@@ -147,7 +146,6 @@ body {
 	width: 24px;
 	height: 1px;
 	background: #494C6B;
-  transition: 2s all;
 }
 .cross::before {
 	transform: rotate(45deg);
@@ -176,10 +174,11 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
 }
 .task-count {
   font-weight: 400;
-  font-size: 0.77rem;
+  font-size: 0.875rem;
   letter-spacing: -0.194444px;
   color: #9495A5;
 }
@@ -190,21 +189,123 @@ body {
 }
 .filter-btn {
   font-weight: 700;
-  font-size: 0.77rem;
+  font-size: 0.875rem;
   letter-spacing: -0.194444px;
   color: #9495A5;
+  cursor: pointer;
+}
+.filter-btn_active {
+  color: #3A7CFD;
+}
+.filter-btn:hover {
+  color: #494C6B;
+  transition: 0.3s ease all;
 }
 .task-clear {
   font-weight: 400;
-  font-size: 0.77rem;
+  font-size: 0.875rem;
   letter-spacing: -0.194444px;
   color: #9495A5;
+  cursor: pointer;
+}
+.footer-mobile {
+  display: none;
 }
 .subtitle {
   padding: 49px 0;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   letter-spacing: -0.194444px;
   color: #9495A5;
   text-align: center;
+}
+
+@media (max-width: 575px) {
+  .background {
+    height: 200px;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+  .main {
+    width: 327px;
+    top: 50px;
+  }
+  .select {
+    padding: 14px 20px;
+  }
+  .input-task {
+    font-size: 0.75rem;
+    letter-spacing: -0.166667px;
+  }
+  .input-task::placeholder {
+    font-size: 0.75rem;
+  }
+  .tasks {
+    margin-top: 16px;
+  }
+  .task {
+    padding: 16px 20px;
+  }
+  .task-text {
+    font-size: 0.75rem; 
+    letter-spacing: -0.166667px;
+  }
+  .fake, .fake-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+  }
+  .fake-input {
+    width: 22px;
+    margin-right: 14px;
+  }
+  .mark {
+    width: 14px;
+    height: 10px; 
+  }
+  .cross {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+    cursor: pointer;
+  }
+  .cross::before,
+  .cross::after {
+    top: 5px;
+    width: 16px;
+    height: 1px;
+  }
+  .task-footer {
+    padding: 16px 20px;
+  }
+  .task-count {
+    font-size: 0.75rem;
+    letter-spacing: -0.166667px;
+  }
+  .task-clear {
+    font-size: 0.75rem;
+    letter-spacing: -0.166667px;
+  }
+  .filter-wrapper {
+    display: none;
+  }
+  .footer-mobile {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 80px;
+    background: #FFFFFF;
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+    border-radius: 5px;
+  }
+  .subtitle {
+    padding: 40px 0;
+    font-weight: 400;
+    font-size: 0.875rem;
+    letter-spacing: -0.194444px;
+    color: #9495A5;
+    text-align: center;
+  }
 }
