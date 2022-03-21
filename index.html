@@ -30,7 +30,7 @@
             <span class="fake-input">
               <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
             </span>
-            <input class="input-task" type="text" placeholder="Create a new todo…">
+            <input id="input" class="input-task" type="text" placeholder="Create a new todo…">
           </label>
         </div>
         <div class="tasks">
@@ -61,8 +61,8 @@
                 <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
               </span>
               <p class="task-text">10 minutes meditation</p>
-              <span class="cross"></span>
             </label>
+            <span class="cross"></span>
           </div>
           <div class="task">
             <label class="task-inner">
@@ -71,8 +71,8 @@
                 <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
               </span>
               <p class="task-text">Read for 1 hour</p>
-              <span class="cross"></span>
             </label>
+            <span class="cross"></span>
           </div>
           <div class="task">
             <label class="task-inner">
@@ -81,8 +81,8 @@
                 <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
               </span>
               <p class="task-text">Pick up groceries</p>
-              <span class="cross"></span>
             </label>
+            <span class="cross"></span>
           </div>
           <div class="task">
             <label class="task-inner">
@@ -91,13 +91,13 @@
                 <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
               </span>
               <p class="task-text">Complete Todo App on Frontend Mentor</p>
-              <span class="cross"></span>
             </label>
+            <span class="cross"></span>
           </div>
         </div>
       </form>
       <div class="task-footer">
-        <p class="task-count"><span>5</span> items left</p>
+        <p class="task-count"><span class="count">5</span> items left</p>
         <div class="filter-wrapper">
           <p id="all" class="filter-btn filter-btn_active">All</p>
           <p id="active" class="filter-btn">Active</p>
