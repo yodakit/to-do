@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" title="theme" href="css/theme-light.css">
 </head>
 <body>
   <header class="background"></header>
@@ -17,7 +18,10 @@
     <div class="main">
       <div class="main__header">
         <h1 class="logo">TODO</h1>
-        <img src="img/moon.svg" alt="moon" class="theme-link">
+        <div class="theme">
+          <img src="img/moon.svg" alt="moon" data-theme="dark" class="theme-link">
+          <img src="img/sun.svg" alt="moon" data-theme="light" class="theme-link">
+        </div>
       </div>
       <form action="#">
         <div class="select">
