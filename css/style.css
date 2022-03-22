@@ -183,9 +183,6 @@ body {
   letter-spacing: -0.194444px;
   cursor: pointer;
 }
-.filter-btn_active {
-  color: #3A7CFD;
-}
 .filter-btn:hover {
   color: #494C6B;
   transition: 0.3s ease all;

@@ -52,6 +52,9 @@ body {
 .filter-btn:hover {
   color: #E3E4F1;
 }
+.filter-btn_active {
+  color: #3A7CFD;
+}
 .task-clear {
   color: #5B5E7E;
 }
@@ -64,6 +67,9 @@ body {
   .footer-mobile {
     background: #25273D;
     box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+  }
+  .filter-btn:hover {
+    color: #3A7CFD;
   }
 }
 .theme-link[data-theme="dark"] {

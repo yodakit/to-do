@@ -11,17 +11,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Task count
-  function setTaskCount() {
-    const taskCount = document.querySelectorAll('.task').length;
-    document.querySelector('.count').textContent = taskCount;    
-  }
-
   // Add new task
   const input = document.getElementById('input'),
         checkboxInput = document.querySelector('.checkbox'),
-        tasksContainer = document.querySelector('.tasks');
-
+        tasksContainer = document.querySelector('.tasks'),
+        filterBtns = document.querySelectorAll('.filter-btn'); 
+  
+  let deleteButtons = document.querySelectorAll('.cross'),
+      taskCount = tasksContainer.querySelectorAll('.checkbox');
 
 
   input.addEventListener('keydown', (event) => {
@@ -52,39 +49,113 @@ window.addEventListener('DOMContentLoaded', () => {
     `;
     tasksContainer.insertAdjacentHTML('beforeend', newTask);
     input.value = '';
+    updateTask();
     removeTask();
-    setTaskCount();
+    updateActiveClass(filterBtns[0]);
   }
 
   // Remove task
-  function removeTask() {
-    const deleteButtons = document.querySelectorAll('.cross');
 
+  function removeTask() {
     deleteButtons.forEach(btn => {
       btn.addEventListener('click', (event) => {
-        if (event.target.parentElement.className === 'task') {
-          event.target.parentElement.remove();
-          setTaskCount();
-        }
+        event.target.closest('.task').remove();
+        updateTask();
       });
     });
   }
 
-  // Clear Compleated
-  // const clearBtn = document.querySelector('.task-clear');
+  // Task count
+  function setTaskCount() {
+    taskCount.forEach(task => {
+      task.addEventListener('click', updateTask);
+    });
 
-  // clearBtn.addEventListener('click', clearCompleated());
+    let count = 0;
 
-  // function clearCompleated() {
-  //   const checkboxes = tasksContainer.querySelectorAll('.checkbox');
+    taskCount.forEach(task => {
+      if (!task.checked) {
+        count++;
+      }
+    document.querySelector('.count').textContent = count;
+    });
+  }
 
-  //   checkboxes.forEach(checkbox => {
-  //     console.log('no');
-  //     if (checkbox.checked) {
-  //       console.log('yes');
-  //     }
-  //   });
-  // }
+  // Clear compleated
+  const clearBtn = document.querySelector('.task-clear');
+
+  clearBtn.addEventListener('click', () => {
+    taskCount.forEach(task => {
+      if (task.checked) {
+        task.closest('.task').remove();
+        updateTask();
+      }
+    });
+  });
+
+  // Filters
+  let aciveBtn = null,
+      completedBtn = null,
+      allBtn = null;
+
+  if (document.querySelector('.task-footer').style.display === 'none') {
+    aciveBtn = document.getElementById('active-mobile');
+    completedBtn = document.getElementById('completed-mobile');
+    allBtn = document.getElementById('all-mobile');
+  } else {
+    aciveBtn = document.getElementById('active-mobile');
+    completedBtn = document.getElementById('completed-mobile');
+    allBtn = document.getElementById('all-mobile');
+  }
+  // 1.Active
+
+  aciveBtn.addEventListener('click', (event) => {
+    taskCount.forEach(task => {
+      if (task.checked) {
+        task.closest('.task').style.display = "none";
+      } else {
+        task.closest('.task').style.display = "block";
+      }
+    });
+    updateActiveClass(event.target);
+  });
+
+  // 2.Compleated
+
+  completedBtn.addEventListener('click', (event) => {
+    taskCount.forEach(task => {
+      if (!task.checked) {
+        task.closest('.task').style.display = "none";
+      } else {
+        task.closest('.task').style.display = "block";
+      }
+    });
+    updateActiveClass(event.target);
+  });
+
+  // 3.All
+
+  allBtn.addEventListener('click', (event) => {
+    taskCount.forEach(task => {
+      task.closest('.task').style.display = "block";
+    });
+    updateActiveClass(event.target);
+  });
+
+  // Update task
+  function updateTask() {
+    deleteButtons = document.querySelectorAll('.cross');
+    taskCount = tasksContainer.querySelectorAll('.checkbox');
+    setTaskCount();
+  }
+
+  // Update active class
+  function updateActiveClass(elem) {
+    filterBtns.forEach(btn => {
+      btn.classList.remove('filter-btn_active');
+    });
+    elem.classList.add('filter-btn_active');
+  }
 
   // Starting position
   setTaskCount();
