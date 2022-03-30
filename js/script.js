@@ -63,6 +63,8 @@ window.addEventListener('DOMContentLoaded', () => {
         localStorage.tasks = JSON.stringify(taskList);
       }
 
+      document.querySelector(`[data-id="[${taskList[0].id}]"]`).classList.add('task-first');
+
       setTaskCount();
   };
 
@@ -71,8 +73,9 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`[data-id="[${idTask}]"]`).remove();
 
     taskList = taskList.filter(task => task.id !== idTask);
-
     localStorage.tasks = JSON.stringify(taskList);
+
+    document.querySelector(`[data-id="[${taskList[0].id}]"]`).classList.add('task-first');
 
     setTaskCount();
   };

@@ -74,7 +74,7 @@ body {
   display: inline-flex;
   align-items: flex-end;
 }
-.task:first-child {
+.task-first {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
