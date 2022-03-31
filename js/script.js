@@ -41,6 +41,13 @@ window.addEventListener('DOMContentLoaded', () => {
       : showFooter(count);
   };
 
+  // fixing the border radius of the first task
+  const fixBorderRadius = () => {
+    if (taskList.length) {
+      document.querySelector(`[data-id="[${taskList[0].id}]"]`).classList.add('task-first');
+    }
+  };  
+
   // add and render new task
   const addTask = (taskValue, idTask = Date.now(), checkStatus = false, dataStorage = false) => {
     const newTask = `
@@ -55,28 +62,26 @@ window.addEventListener('DOMContentLoaded', () => {
           <span class="cross"></span>
         </div>
       `;
-      tasksContainer.insertAdjacentHTML('beforeend', newTask);
-      input.value = '';
+    tasksContainer.insertAdjacentHTML('beforeend', newTask);
+    input.value = '';
 
-      if (!dataStorage) {
-        taskList.push({taskValue, checkStatus, id: idTask});
-        localStorage.tasks = JSON.stringify(taskList);
-      }
+    if (!dataStorage) {
+      taskList.push({taskValue, checkStatus, id: idTask});
+      localStorage.tasks = JSON.stringify(taskList);
+    }
 
-      document.querySelector(`[data-id="[${taskList[0].id}]"]`).classList.add('task-first');
-
-      setTaskCount();
+    fixBorderRadius();
+    setTaskCount();
   };
-
+    
   // remove task
   const removeTask = (idTask) => {
     document.querySelector(`[data-id="[${idTask}]"]`).remove();
-
+    
     taskList = taskList.filter(task => task.id !== idTask);
     localStorage.tasks = JSON.stringify(taskList);
-
-    document.querySelector(`[data-id="[${taskList[0].id}]"]`).classList.add('task-first');
-
+    
+    fixBorderRadius();
     setTaskCount();
   };
   
