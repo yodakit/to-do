@@ -61,6 +61,9 @@ body {
 .subtitle {
   color: #9495A5;
 }
+.over {
+  background-color: #eaeaea;
+}
 
 @media (max-width: 575px) {
   .footer-mobile {

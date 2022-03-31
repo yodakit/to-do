@@ -51,16 +51,18 @@ window.addEventListener('DOMContentLoaded', () => {
   // add and render new task
   const addTask = (taskValue, idTask = Date.now(), checkStatus = false, dataStorage = false) => {
     const newTask = `
-        <div data-id=[${idTask}] class="task">
-          <label class="task-inner">
-            <input ${checkStatus ? 'checked' : ''} class="checkbox" type="checkbox">
-            <span class="fake">
-              <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
-            </span>
-            <p class="task-text">${taskValue}</p>
-          </label>
-          <span class="cross"></span>
-        </div>
+        <li class="task-wrapper">
+          <div data-id=[${idTask}] class="task" draggable="true">
+            <label class="task-inner">
+              <input ${checkStatus ? 'checked' : ''} class="checkbox" type="checkbox">
+              <span class="fake">
+                <svg class="mark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+              </span>
+              <p class="task-text">${taskValue}</p>
+            </label>
+            <span class="cross"></span>
+          </div>
+        </li>
       `;
     tasksContainer.insertAdjacentHTML('beforeend', newTask);
     input.value = '';
@@ -72,11 +74,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     fixBorderRadius();
     setTaskCount();
+
+    addDragAndDrop();
   };
     
   // remove task
   const removeTask = (idTask) => {
-    document.querySelector(`[data-id="[${idTask}]"]`).remove();
+    document.querySelector(`[data-id="[${idTask}]"]`).parentElement.remove();
     
     taskList = taskList.filter(task => task.id !== idTask);
     localStorage.tasks = JSON.stringify(taskList);
@@ -207,4 +211,66 @@ window.addEventListener('DOMContentLoaded', () => {
     filteredTasks(true);
     setActiveFilter(event.target);
   });
+
+  // Drag and drop 
+  let dragStartIndex;
+
+  function addDragAndDrop() {
+    const draggables = document.querySelectorAll('.task'),
+          dragItems = tasksContainer.querySelectorAll('.task-wrapper');
+
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', dragStart);
+    });
+
+    dragItems.forEach(dragItem => {
+      dragItem.addEventListener('dragover', dragOver);
+      dragItem.addEventListener('drop', dragDrop);
+      dragItem.addEventListener('dragenter', dragEnter);
+      dragItem.addEventListener('dragleave', dragLeave);
+    });
+  }
+
+  // Drag start
+  function dragStart() {
+    dragStartIndex = +this.dataset.id.replace(/\D/g, '');
+  }
+
+  // Drag enter 
+  function dragEnter() {
+    this.firstElementChild.classList.add('over');
+  }
+  
+  // Drag leave
+  function dragLeave() {
+    this.firstElementChild.classList.remove('over');
+  }
+
+  // Drag over
+  function dragOver(event) {
+    event.preventDefault();
+  }
+
+  // Drag drop
+  function dragDrop(event) {
+    const dragEndIndex = +event.target.dataset.id.replace(/\D/g, '');
+    event.target.classList.remove('over');
+
+    swapItems(dragStartIndex, dragEndIndex);
+  }
+
+  // Swap Items
+  function swapItems(fromIndex, toIndex) {
+    const itemOne = tasksContainer.querySelector(`[data-id="[${fromIndex}]"]`);
+    const itemTwo = tasksContainer.querySelector(`[data-id="[${toIndex}]"]`);
+    const parentItemOne = itemOne.parentElement;
+    const parentItemTwo = itemTwo.parentElement;
+
+    itemOne.remove();
+    itemTwo.remove();
+
+    parentItemOne.append(itemTwo);
+    parentItemTwo.append(itemOne);
+  }
 });  
+

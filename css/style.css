@@ -7,6 +7,11 @@
 body {
   font-family: 'Josefin Sans';
 }
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 .background {
   height: 300px;
 }
@@ -15,7 +20,7 @@ body {
 }
 .main {
   width: 540px;
-  height: 400px;
+  height: auto;
   position: absolute;
   top: 70px;
   left: 50%;
@@ -284,7 +289,9 @@ body {
     border-radius: 5px;
   }
   .subtitle {
-    padding: 40px 0;
-    font-size: 0.875rem;
+    /* padding: 40px 0;
+    font-size: 0.875rem; */
+    opacity: 0;
+    padding: 0;
   }
 }

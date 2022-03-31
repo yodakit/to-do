@@ -58,9 +58,11 @@ body {
 .task-clear {
   color: #5B5E7E;
 }
-
 .subtitle {
   color: #5B5E7E;
+}
+.over {
+  background-color: #3c3f61;
 }
 
 @media (max-width: 575px) {
