@@ -153,7 +153,6 @@ window.addEventListener('DOMContentLoaded', () => {
       const themeUrl = `css/theme-${event.target.dataset.theme}.css`;
       themeStyleCss.setAttribute('href', themeUrl);
       localStorage.setItem('theme', event.target.dataset.theme);
-      console.log(startThemeName);
     });
   });
   
