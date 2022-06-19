@@ -2,7 +2,7 @@ body {
   background: #F2F2F2;
 }
 .background {
-  background: url("/img/light-bg.jpg") center center/cover no-repeat;
+  background: url("../img/light-bg.jpg") center center/cover no-repeat;
 }
 .select {
   background: #FFFFFF;

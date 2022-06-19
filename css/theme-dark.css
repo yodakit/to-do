@@ -2,7 +2,7 @@ body {
   background: #171823;
 }
 .background {
-  background: url("/img/dark-bg.jpg") center center/cover no-repeat;
+  background: url("../img/dark-bg.jpg") center center/cover no-repeat;
 }
 .select {
   background: #25273D;
